@@ -1,10 +1,10 @@
 import { create } from "zustand";
-import { Recipe } from "../api/recipesApi";
+import { Recipe } from "../types/recipe";
 
 interface FavoritesState {
   favorites: Recipe[];
   addFavorite: (item: Recipe) => void;
-  removeFavorite: (id: number) => void;
+  removeFavorite: (id: string) => void;
 }
 
 export const useFavoritesStore = create<FavoritesState>((set) => ({

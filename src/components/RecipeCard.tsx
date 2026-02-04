@@ -1,7 +1,7 @@
 // src/components/RecipeCard.tsx
 import React from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
-import { Recipe } from "../api/recipesApi";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Recipe } from "../types/recipe";
 
 interface RecipeCardProps {
   item: Recipe;
@@ -16,9 +16,9 @@ export default function RecipeCard({ item, onPress }: RecipeCardProps) {
         <Text style={styles.title} numberOfLines={2}>
           {item.name}
         </Text>
-        
+
         <Text style={styles.origin} numberOfLines={1}>
-           {item.origin}
+          {item.origin}
         </Text>
       </View>
     </TouchableOpacity>

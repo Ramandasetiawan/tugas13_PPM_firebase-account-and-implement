@@ -1,6 +1,7 @@
 // src/store/recipesStore.ts
 import { create } from "zustand";
-import { getRecipes, Recipe } from "../api/recipesApi";
+import { fetchRecipes } from "../services/recipeService";
+import { Recipe } from "../types/recipe";
 
 interface RecipesState {
   allRecipes: Recipe[];
@@ -16,7 +17,7 @@ export const useRecipesStore = create<RecipesState>((set) => ({
   fetchAllRecipes: async () => {
     set({ loading: true, error: null });
     try {
-      const data = await getRecipes();
+      const data = await fetchRecipes();
       set({ allRecipes: data, loading: false });
     } catch (err: any) {
       set({ error: err.message, loading: false });
